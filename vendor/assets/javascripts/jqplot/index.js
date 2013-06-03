@@ -2,8 +2,9 @@
 //= require ./jquery.jqplot
 //= require ./excanvas
 
-$(document).ready(function() {
-  $('div[data-role="jqplot"]').each(function() {
+(function() {
+  var load_plots = function() {
+  $('div[data-role="jqplot"]').not('.jqplot-target').each(function() {
     var options = $(this).data('options');
 
     // renderer options are JS objects
@@ -68,4 +69,7 @@ $(document).ready(function() {
     // initialize the graph
     $.jqplot($(this).attr('id'), $(this).data('series'), options);
   });
-});
+};
+$(document).ready(load_plots);
+$(document).on('page:load', load_plots);
+})(jQuery)

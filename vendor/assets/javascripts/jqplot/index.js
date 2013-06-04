@@ -32,6 +32,11 @@
         if(typeof(options.axes.yaxis.tickRenderer) === 'string' && options.axes.yaxis.tickRenderer.indexOf('$.') === 0) {
           options.axes.yaxis.tickRenderer = eval(options.axes.yaxis.tickRenderer)
         }
+        if(options.axes.yaxis.tickOptions) {
+            if(typeof(options.axes.yaxis.tickOptions.formatter) === 'string') {
+              options.axes.yaxis.tickOptions.formatter = eval(options.axes.yaxis.tickOptions.formatter);
+            }
+        }
         if(typeof(options.axes.yaxis.renderer) === 'string' && options.axes.yaxis.renderer.indexOf('$.') === 0) {
           options.axes.yaxis.renderer = eval(options.axes.yaxis.renderer)
         }
